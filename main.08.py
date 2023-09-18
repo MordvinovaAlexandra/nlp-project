@@ -8,9 +8,9 @@ def load(path: str, encoding: str = 'utf-8') -> str:
         data = f.read()
     return data
 
-def preprocess(text: str) -> str:
-    # добавить ентити рекогнишн
-    return text
+# def preprocess(text: str) -> str:
+#     # добавить ентити рекогнишн
+#     return text
 
 def tokenize(text: str) -> list[str]:
    return re.findall(r'\w{2,}', text)
@@ -18,7 +18,7 @@ def tokenize(text: str) -> list[str]:
 
 if __name__ == '__main__':
     text = load('./TEXT/wizard_oz.txt', encoding = 'cp1251')
-    text = preprocess(text)
+    # text = preprocess(text)
     words = without_stopwords(tokenize(text))
     nouns = [normalize(word) for word in get_nouns(words)]
     # print(words[:20])
